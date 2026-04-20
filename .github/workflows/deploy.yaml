@@ -10,6 +10,8 @@ on:
 jobs:
   # Job to compile the application
   compile:
+    needs: test
+
     # Specify the Os for the runner (container)
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
@@ -49,7 +51,4 @@ jobs:
       # TODO 01 - Add a step to run tests
       - name: Run tests
         run: go test ./...
-
-  compile:
-    needs: test
 
